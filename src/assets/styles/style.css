@@ -35,6 +35,24 @@ html, body, #root {
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container .grid-item .grid-item-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.grid-container .grid-item .grid-item-info span {
+    line-height: 20px;
+}
+
+.grid-container .grid-item img {
+    height: 32px;
+    margin-right: 18px;
 }
 
 .headline {
@@ -57,4 +75,22 @@ html, body, #root {
 
 .checkbox-container input[type="checkbox"]:first-child {
     margin-left: 0;
+}
+
+@media only screen and (max-width: 1350px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 300px);
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 300px);
+    }
 }
