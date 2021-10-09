@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../components/Header';
@@ -17,12 +17,6 @@ export default function Home() {
         // dispatch(fetchAirlines());
         // eslint-disable-next-line
     }, []);
-
-    const [filter, setFilter] = useState({})
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-    };
 
     return (
         <>
@@ -47,8 +41,8 @@ export default function Home() {
                     {
                         airlines.map(item => {
                             return (
-                                <div className="grid-item">
-                                    <img src={"http://kayak.com" + item.logoURL}></img>
+                                <div className="grid-item" key={item.name}>
+                                    <img src={"http://kayak.com" + item.logoURL} alt="company logo"></img>
                                     <div className="grid-item-info">
                                         <span className="font-weight-bold">{item.name}</span>
                                         <span>{item.phone}</span>
