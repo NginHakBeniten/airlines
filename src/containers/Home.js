@@ -30,7 +30,7 @@ export default function Home() {
             [name]: checked
         });
     }
-    
+
     let Arrairlines = airlines.list.filter(item => {
         let isReturn = false;
         let filtered = [];
@@ -77,8 +77,9 @@ export default function Home() {
                                     <img src={"http://kayak.com" + item.logoURL} alt="company logo"></img>
                                     <div className="grid-item-info">
                                         <span className="font-weight-bold">{item.name}</span>
-                                        <span>{item.phone}</span>
-                                        <span>{item.site}</span>
+                                        <span className="more-info">{item.alliance !== 'none' ? item.alliance : ''}</span>
+                                        <span className="more-info">{item.phone}</span>
+                                        <span className="more-info">{item.site}</span>
                                     </div>
                                 </div>
                             );

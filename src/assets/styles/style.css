@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-/* @font-face {
-    font-family: 'Avenir';
-    src: url('../fonts/avenir_ff/AvenirLTStd-Book.otf');
-  } */
-
 html, body, #root {
     margin: 0;
     padding: 0;
@@ -40,10 +35,23 @@ html, body, #root {
     align-items: center;
 }
 
+.grid-item:hover {
+    border: 1px solid black;
+}
+
+.grid-item:hover .more-info {
+    display: block;
+    word-wrap: break-word;
+}
+
 .grid-container .grid-item .grid-item-info {
     display: flex;
     flex-direction: column;
     font-size: 13px;
+}
+
+.more-info {
+    display: none;
 }
 
 .grid-container .grid-item .grid-item-info span {
