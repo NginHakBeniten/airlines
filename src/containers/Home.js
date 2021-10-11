@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../components/Header';
-import { fetchAirlinesAction } from '../reducks/airlines/actions';
 import { fetchAirlines } from '../reducks/airlines/operations';
 import { getAirlines } from '../reducks/airlines/selectors';
 
@@ -13,7 +12,7 @@ export default function Home() {
     const airlines = getAirlines(selector);
 
     useEffect(() => {
-        dispatch(fetchAirlinesAction(airlines, filter));
+        dispatch(fetchAirlines());
         // eslint-disable-next-line
     }, []);
 
@@ -31,9 +30,8 @@ export default function Home() {
             [name]: checked
         });
     }
-
-    const asArray = Object.entries(airlines);
-    let Arrairlines = asArray.filter(item => {
+    
+    let Arrairlines = airlines.list.filter(item => {
         let isReturn = false;
         let filtered = [];
         Object.entries(filter).map(item => {
@@ -42,7 +40,7 @@ export default function Home() {
             }
         });
 
-        if (filtered.includes(item[1].alliance)) {
+        if (filtered.includes(item.alliance)) {
             isReturn = true
         }
 
@@ -75,12 +73,12 @@ export default function Home() {
                     {
                         Arrairlines.map(item => {
                             return (
-                                <div className="grid-item" key={item[1].code}>
-                                    <img src={"http://kayak.com" + item[1].logoURL} alt="company logo"></img>
+                                <div className="grid-item" key={item.code}>
+                                    <img src={"http://kayak.com" + item.logoURL} alt="company logo"></img>
                                     <div className="grid-item-info">
-                                        <span className="font-weight-bold">{item[1].name}</span>
-                                        <span>{item[1].phone}</span>
-                                        <span>{item[1].site}</span>
+                                        <span className="font-weight-bold">{item.name}</span>
+                                        <span>{item.phone}</span>
+                                        <span>{item.site}</span>
                                     </div>
                                 </div>
                             );

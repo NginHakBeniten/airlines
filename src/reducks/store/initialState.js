@@ -1,7 +1,7 @@
-import data from "../../dummy-data/airlines.json";
-
 const initialState = {
-    arilines: data
+    arilines: {
+        list: []
+    }
 }
 
 export default initialState;

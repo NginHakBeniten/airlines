@@ -6,7 +6,7 @@ export const AirlineReducer = (state = initialState.arilines, action) => {
         case Actions.FETCH_AIRLINES:
             return {
                 ...state,
-                ...action.payload.arilines,
+                list: action.payload.airlines,
             }
         default:
             return state;
